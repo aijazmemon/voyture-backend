@@ -1,6 +1,6 @@
 // authController.js
 const User = require('../models/User');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const loginUser = async (req, res) => {
@@ -19,7 +19,7 @@ const loginUser = async (req, res) => {
     }
 
     // Check password
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = await bcryptjs.compare(password, user.password);
     console.log("Password entered:", password);  // Log the plain password entered
     console.log("Hashed password in DB:", user.password);  // Log the hashed password from DB
     console.log("Password match result:", isMatch);  // Log whether passwords match or not
