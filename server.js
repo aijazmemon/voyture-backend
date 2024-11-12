@@ -7,6 +7,7 @@ const experienceRoutes = require('./routes/experienceRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
 const path = require('path');
 const hotelRoutes = require('./routes/hotelRoutes');
+const apiBaseUrl = process.env.REACT_APP_API_URL || '${apiBaseUrl}';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: ['https://voyture.vercel.app', 'http://localhost:3000'],
+  credentials: true,
 }));
 
 app.use(express.json());
